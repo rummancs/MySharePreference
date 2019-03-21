@@ -28,11 +28,21 @@ public class LoginActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+
             String pass = passText.getText().toString();
             String email = emailText.getText().toString();
-            pref.edit().putBoolean("is_USER_IN",true).apply();
-            Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
-            startActivity(intent);
+            if(pass != null && !pass.trim().isEmpty() && email != null && !email.trim().isEmpty())
+            {
+                pref.edit().putBoolean("is_USER_IN",true).apply();
+                Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
+                startActivity(intent);
+            }
+            else
+            {
+
+                pref.edit().putBoolean("is_USER_IN",false).apply();
+            }
+
 
         }
     });

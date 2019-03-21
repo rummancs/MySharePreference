@@ -15,14 +15,25 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
         final SharedPreferences pref = this.getSharedPreferences("TestApp",Activity.MODE_PRIVATE);
+        final boolean isUserin = pref.getBoolean("is_USER_IN",false);
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent i = new Intent(SplashActivity.this,HomeActivity.class);
-                pref.edit().putBoolean("is_LOGGED_IN",true).apply();
-                startActivity(i);
-                finish();
+                if(isUserin)
+                {
+                    pref.edit().putBoolean("is_USER_IN",true).apply();
+                    Intent i = new Intent(SplashActivity.this,HomeActivity.class);
+                    startActivity(i);
+                    finish();
+                }
+                else
+                {
+                    Intent i = new Intent(SplashActivity.this,LoginActivity.class);
+                    startActivity(i);
+                    finish();
+                }
+
 
             }
         },5000);
