@@ -30,10 +30,10 @@ public class LoginActivity extends AppCompatActivity {
         public void onClick(View v) {
             String pass = passText.getText().toString();
             String email = emailText.getText().toString();
-
+            pref.edit().putBoolean("is_USER_IN",true).apply();
             Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
             startActivity(intent);
-            pref.edit().putBoolean("is_USER_IN",true).apply();
+
         }
     });
 

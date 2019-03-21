@@ -18,7 +18,6 @@ public class MainActivity extends AppCompatActivity {
         boolean isLoggedin = pref.getBoolean("is_LOGGED_IN",false);
         boolean isUserLoggedin = pref.getBoolean("is_USER_IN",false);
 
-
         if(isLoggedin)
         {
             if(isUserLoggedin) // if user logged in

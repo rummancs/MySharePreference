@@ -20,9 +20,10 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run() {
                 Intent i = new Intent(SplashActivity.this,HomeActivity.class);
+                pref.edit().putBoolean("is_LOGGED_IN",true).apply();
                 startActivity(i);
                 finish();
-                pref.edit().putBoolean("is_LOGGED_IN",true).apply();
+
             }
         },5000);
     }
